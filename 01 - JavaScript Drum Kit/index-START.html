@@ -57,7 +57,34 @@
   <audio data-key="75" src="sounds/tom.wav"></audio>
   <audio data-key="76" src="sounds/tink.wav"></audio>
 
+  <textarea>
+
+  </textarea>
+
 <script>
+    window.addEventListener('keydown', playSound)
+
+    const keys = Array.from(document.querySelectorAll('.key'))
+    keys.forEach(key => key.addEventListener('transitionend', removeTransition))
+
+    function playSound(e) {
+      // get keycode: e.keyCode
+
+      let keyCode = e.keyCode
+      // get audio element and play
+      const audio = document.querySelector(`audio[data-key="${keyCode}"]`)
+      if(!audio) return
+      audio.currentTime = 0
+      audio.play()
+
+      const button = document.querySelector(`.key[data-key="${keyCode}"]`)
+      button.classList.add('playing') 
+    }
+
+    function removeTransition(e) {
+      if (e.propertyName !== 'transform') return
+      this.classList.remove('playing')
+    }
 
 </script>
 
