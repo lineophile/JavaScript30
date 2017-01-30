@@ -1,0 +1,16 @@
+{
+  "name": "css-clock",
+  "version": "1.0.0",
+  "description": "clock",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "dev": "lite-server"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "lite-server": "^2.2.2"
+  }
+}
